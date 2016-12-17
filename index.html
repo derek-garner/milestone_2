@@ -1,0 +1,72 @@
+	<!doctype html>
+<html lang="en">
+<head>  
+  <title>Quiz Home Page</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/css/main.css">
+
+	<script language="javascript">
+    function CheckFields()
+    {
+      //alert("Here in CheckFields");
+      var firstNameVal = document.getElementById('fFirstName').value;
+      var lastNameVal = document.getElementById('fLastName').value;
+      var schoolCompVal = document.getElementsByName('fSchoolComp');
+
+      if(firstNameVal == '')
+			{
+				alert('Please Enter a First Name');
+				return false;
+			}
+      if(lastNameVal == '')
+			{
+				alert('Please Enter a Last Name');
+				return false;
+			}
+      if(schoolCompVal == '')
+			{
+				alert('Please Enter a School/Company');
+				return false;
+			}
+      theForm.submit();                            
+
+    }
+    
+  </script>
+    
+</head>
+
+<body>
+  <h1> Welcome to Computer Trivia Game</h1>
+  <form id="theForm" action="questionPage.php" method="post">
+    First Name: <input class="userInput" style="margin:4px;" type="text" id="fFirstName" name="fFirstName" /><br />
+    Last Name: <input class="userInput" style="margin:4px;" type="text" id="fLastName" name="fLastName" /><br />
+    School/Company: <input class="userInput" style="margin:4px;" type="text" id="fSchoolComp" name="fSchoolComp" size="40" /><br />
+    <input type="hidden" id="numberCorrectAnswers" name="numberCorrectAnswers" value="0" />
+    <input type="hidden" id="numberWrongAnswers" name="numberWrongAnswers" value="0" />
+    <input type="hidden" id="fScore" name="fScore" value="0" />
+    <input type="hidden" id="questionNumber" name="questionNumber" value="1" />
+
+    Number of Questions: 
+    <select id="numberOfQuestions" name="numberOfQuestions">
+    	<option value="2">2</option>
+    	<option value="5">5</option>
+    	<option value="10" selected>10</option>
+    	<option value="15">15</option>
+    	<option value="20">20</option>
+    </select><br /><br />
+    <input type="button" id="btnStartQuiz" name="btnStartQuiz" value="Start Quiz" onClick="CheckFields();">
+			
+    <div id="footer-right">
+    <ul>
+      <li><a href="displayScores.html">Display Scores</a></li>
+    </ul>
+    </div>
+
+	
+</form>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>My USU Final Web Site</title>
+<link type="text/css" rel="stylesheet" href="css/main.css" />
+<script>
+function ShowScores() {
+        //alert('here in ShowScores');
+
+        if (window.XMLHttpRequest) 
+        {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else 
+        {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() 
+        {
+            if (this.readyState == 4 && this.status == 200) 
+            {
+                    //alert('here we are ready');
+                    document.getElementById("scoresTable").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getscores.php");
+        xmlhttp.send();
+}
+</script>
+</head>
+<body onload="ShowScores();">
+
+<form>
+	<!--<input type="button" value="ClickMe" onclick="ShowScores()">-->
+</form>
+<br>
+<div id="scoresTable"><b>Scores will be listed here...</b></div>
+
+  <div id="footer-right">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="displayScores.html">Display Scores</a></li>
+    </ul>
+  </div>
+</body>
+</html>
